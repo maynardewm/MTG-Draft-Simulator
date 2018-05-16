@@ -1,0 +1,689 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ------------------ FONTS ------------------ */
+@font-face {
+    font-family: 'magicthe_gatheringregular';
+    src: url('../fonts/magic-webfont.woff2') format('woff2'),
+         url('../fonts/magic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'matrixbold';
+    src: url('../fonts/matrix-webfont.woff2') format('woff2'),
+         url('../fonts/matrix-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'MPlantin';
+	src: url('../fonts/MPlantin.eot');
+	src: url('../fonts/MPlantin.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/MPlantin.woff') format('woff'),
+		url('../fonts/MPlantin.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+/* ------------------ GENERAL ------------------ */
+body {
+	font-family: Arial;
+	position: relative;
+	font-family: 'MPlantin';
+}
+html, body {
+	overflow: hidden;
+}
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+}
+#mtg {
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	position: absolute;
+	z-index: 3;
+	overflow: hidden;
+}
+.bg {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+}
+.bg-cover-right {
+	position: absolute;
+	right: 0px;
+	width: 50%;
+	height: 100%;
+	z-index: 2;
+	background-color: rgba(255,255,255,.8);
+}
+.bg-cover-left {
+	position: absolute;
+	left: 0px;
+	width: 50%;
+	height: 100%;
+	z-index: 2;
+	background-color: rgba(100,100,100,.8);
+}
+.loading-screen {
+	color: #FFF;
+}
+/* -------- MODALS ---------- */
+.card-viewer {
+	position: absolute;
+	z-index: 1000;
+	width: 233px;
+	height: 354px;
+	right: 5px;
+	bottom: 5px;
+	padding-bottom: 8px;
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: rgba(255,255,255,.6);
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+	.card-viewer-header {
+		position: relative;
+		width: 100%;
+		height: 34px;
+		background-color: rgba(59,63,61,.8);
+		color: #CCC;
+		box-sizing: border-box;
+	}
+		.card-viewer .card-viewer-header .title {
+			position: absolute;
+			font-size: 14px;
+			line-height: 1em;
+			top: 50%;
+			margin-top: -7px;
+			left:10px;
+		}
+		.card-viewer-header .close {
+			position: absolute;
+			font-size: 18px;
+			line-height: 1em;
+			top: 50%;
+			margin-top: -11px;
+			right: 10px;
+			cursor: pointer;
+		}
+	.card-viewer-image {
+		height: 327.5px;
+		padding: 5px;
+		border-radius: 15px;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+		.card-viewer-image img {
+			width: 100%;
+			height: 100%;
+		}
+		.card-viewer .card {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+		}
+
+	/* ---------- CARD VIEW FONT SIZES ---------- */
+	.card-viewer .card .title {
+		font-size: 12px;
+	}
+	.card-viewer .card .text {
+		font-size: 9.5px;
+	}
+		.card-viewer .card .text .text-space {
+			width: 100%;
+			height: 4px;
+		}
+		.card-viewer .card .text .symbol-number {
+			width: 9.5px;
+			height: 9.5px;
+			font-size: 9.5px;
+		}
+		.card-viewer .card .text .symbol-tap {
+			width: 9.5px;
+			height: 9.5px;
+		}
+		.card-viewer .card .text .mana-symbol-white, .card-viewer .card .text .mana-symbol-blue, .card-viewer .card .text .mana-symbol-black, .card-viewer .card .text .mana-symbol-red, .card-viewer .card .text .mana-symbol-green {
+			width: 10px;
+			height: 10px;
+		}
+	.card-viewer .card .type {
+		font-size: 10px;
+	}
+	.card-viewer .card .mana-costs .symbol-number {
+		width: 11px;
+		height: 10px;
+		font-size: 10.5px;
+	}
+		.card-viewer .card .mana-costs .symbol-tap {
+			width: 11.5px;
+			height: 11.5px;
+		}
+		.card-viewer .card .mana-costs .mana-symbol-white, .card-viewer .card .mana-costs .mana-symbol-blue, .card-viewer .card .mana-costs .mana-symbol-black, .card-viewer .card .mana-costs .mana-symbol-red, .card-viewer .card .mana-costs .mana-symbol-green {
+			width: 11.5px;
+			height: 11.5px;
+		}
+	.card-viewer .card .power-toughness {
+		font-size: 14px;
+	}
+	.card-viewer .card .set-symbol {
+	    font-size: 11px;
+	}
+
+/* -------- TOOLBELT ---------- */
+.toolbelt-btn {
+	width: 26px;
+	height: 16px;
+	position: absolute;
+	z-index: 1001;
+	right: 15px;
+	top: 18px;
+	cursor: pointer;
+}
+	.toolbelt-btn .bar {
+		pointer-events: none;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		background-color: #000;
+		z-index: 1;
+	}
+		.toolbelt-btn .bar-top {
+			top: 0px;
+		}
+		.toolbelt-btn .bar.bar-mid {
+			top: 50%;
+			margin-top: -1px;
+		}
+		.toolbelt-btn .bar-bot {
+			bottom: 0px;
+		}
+
+.toolbelt {
+	position: absolute;
+	z-index: 1002;
+	width: 400px;
+	height: 100%;
+	right: 0px;
+	background-color: rgba(255,255,255,.85);
+	-ms-transform: translate(400px, 0px); /* IE 9 */
+    -webkit-transform: translate(400px, 0px); /* Safari */
+    transform: translate(400px, 0px);
+}
+.toolbelt .body {
+	height: 100%;
+	overflow: auto;
+}
+.toolbelt .wrapper {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 15px;
+}
+.toolbelt .close {
+	position: absolute;
+	z-index: 2;
+	font-size: 24px;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+/* ------------------ PLAYER TABLE ------------------ */
+.table {
+	background: transparent;
+	height: 100%;
+}
+.booster-cards {
+	width: 50%;
+	height: 100%;
+	float: left;
+	border-right: 1px solid #999;
+	padding: 10px;
+	overflow: auto;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 1;
+	background: transparent;
+}
+.players-picks {
+	position: relative;
+	z-index: 2;
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding-bottom: 20px;
+	overflow-y: auto;
+	overflow-x: visible;
+	padding: 10px;
+	box-sizing: border-box;
+}
+/* ---------- TABLE HEADERS ---------- */
+.table-headers {
+	height: 54px;
+}
+.table-header {
+	width: 100%;
+}
+	.table-header-booster {
+		position: relative;
+		width: 50%;
+		height: 100%;
+		background-color: rgba(59,63,61,.6);
+		float: left;
+		border-right: 1px solid #999;
+		box-sizing: border-box;
+	}
+		.table-header-booster .title {
+			float: left;
+			position: relative;
+			font-size: 16px;
+			line-height: 1em;
+			color: #CCC;
+			height: 100%;
+			padding: 0px 20px;
+		}
+			.table-header-booster .title h1 {
+				position: relative;
+				line-height: 54px;
+			}
+		.table-header-booster .booster-counters {
+			position: relative;
+			float: left;
+			height: 100%;
+			padding: 0px 20px;
+		}
+			.table-header-booster .booster-counter {
+				position: relative;
+				float: left;
+				width: 8px;
+				height: 8px;
+				font-size: 12px;
+				opacity: .5;
+				border-radius: 7px;
+				margin: 22px 3px;
+				color: #FFF;
+			}
+				.table-header-booster .booster-counter.active {
+					opacity: 1;
+				}
+		.table-header-booster .pool-counters {
+			position: relative;
+			float: right;
+			height: 100%;
+			padding: 0px 20px;
+		}
+			.table-header-booster .pool-counter {
+				position: relative;
+				float: left;
+				width: 8px;
+				height: 8px;
+				background-color: #FFF;
+				opacity: .5;
+				border-radius: 7px;
+				margin: 23px 3px;
+			}
+				.table-header-booster .pool-counter.active {
+					opacity: 1;
+				}
+	.table-header-picks {
+		position: relative;
+		width: 50%;
+		height: 100%;
+		background-color: rgba(166,178,180,.5);
+		float: left;
+		box-sizing: border-box;
+	}
+		.table-header-picks .title {
+			float: left;
+			position: relative;
+			font-size: 16px;
+			line-height: 1em;
+			color: #555;
+			height: 100%;
+			padding: 0px 20px;
+		}
+			.table-header-picks .title h1 {
+				position: relative;
+				line-height: 54px;
+			}
+		.table-header-picks .sort-by {
+			float: left;
+			position: relative;
+			font-size: 16px;
+			line-height: 1em;
+			color: #555;
+			height: 100%;
+			padding: 0px 15px;
+			border-left: solid 1px #999;
+			border-right: solid 1px #999;
+			cursor: pointer;
+		}
+			.table-header-picks .sort-by .text {
+				position: relative;
+				line-height: 54px;
+			}
+.card {
+	width: 24.35%;
+	margin: 2px;
+	float: left;
+	box-sizing: border-box;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 10px;
+}
+.card .card-image {
+	width: 100%;
+	position: relative;
+	z-index: 1;
+}
+.card .options {
+	display: none;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	z-index: 5;
+	top: 80px;
+	opacity: 0;
+}
+.card .options .pick-btn {
+	width: 100%;
+	padding: 6px 0px;
+	color: #FFF;
+	background-color: rgba(223,167,74,.8);
+	box-sizing: border-box;
+	margin: 0 auto;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.card .edge-highlight {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	border: solid 3px gold;
+	position: absolute;
+	z-index: 3;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+/* ----- TEMPLATES ----- */
+.card .template-white {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-white-2x.png");
+	background-size: 100% 100%;
+}
+.card .template-blue {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-blue-2x.png");
+	background-size: 100% 100%;
+}
+.card .template-black {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-black-2x.png");
+	background-size: 100% 100%;
+}
+.card .template-red {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-red-2x.png");
+	background-size: 100% 100%;
+}
+.card .template-green {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-green-2x.png");
+	background-size: 100% 100%;
+}
+.card .template-artifact {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-artifact-2x.png");
+	background-size: 100% 100%;
+}
+.card .template-gold {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-gold-2x.png");
+	background-size: 100% 100%;
+}
+.card .template-land {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background-image: url("../img/template-land-2x.png");
+	background-size: 100% 100%;
+}
+/* ----- CARD BODY TEXT ----- */
+.card .title {
+	font-family: "magicthe_gatheringregular";
+	color: #DDD;
+	position: absolute;
+	z-index: 3;
+	left: 11.25%;
+	top: 5%;
+	font-size: 9px;
+	letter-spacing: 0.1px;
+	text-shadow: 0.5px 0.5px 0px rgba(0,0,0,1);
+}
+.card .mana-costs {
+	font-family: serif;
+	position: absolute;
+	z-index: 3;
+	right: 8.12%;
+	top: 4.5%;
+	font-size: 7.5px;
+	letter-spacing: -0.2px;
+	font-weight: 600;
+}
+	.card .mana-costs .symbol-number {
+		width: 8px;
+		height: 7px;
+		padding-top: 1px;
+		float: left;
+		border-radius: 50%;
+		text-align: center;
+		font-size: 8.5px;
+		background-color: #d8c2b3;
+		margin-right: 1px;
+		position: relative;
+		top: 1px;
+	}
+	.card .mana-costs .symbol-tap {
+		width: 8.5px;
+		height: 8.5px;
+		margin-right: 1px;
+		position: relative;
+		top: 1px;
+	}
+	.card .mana-costs .mana-symbol-white, .card .mana-costs .mana-symbol-blue, .card .mana-costs .mana-symbol-black, .card .mana-costs .mana-symbol-red, .card .mana-costs .mana-symbol-green {
+		width: 8.5px;
+		height: 8.5px;
+		position: relative;
+		top: .5px;
+		margin-right: 1px;
+	}
+.card .type {
+	font-family: "magicthe_gatheringregular";
+	color: #DDD;
+	position: absolute;
+	z-index: 3;
+	left: 10.25%;
+	top: 56.49%;
+	font-size: 8px;
+	letter-spacing: 0.1px;
+	text-shadow: 0.6px 0.6px 0px rgba(0,0,0,1);
+}
+.card .power-toughness {
+	font-family: serif;
+	position: absolute;
+	color: #DDD;
+	text-shadow: 1px 1px 0px rgba(0,0,0,1);
+	z-index: 3;
+	right: 8.12%;
+	top: 90.48%;
+	font-size: 11px;
+	letter-spacing: -0.2px;
+	font-weight: 600;
+	line-height: 1.05em;
+}
+.card .set-symbol {
+	position: absolute;
+	z-index: 3;
+	right: 10.8%;
+	top: 55.6%;
+	font-size: 9px;
+	text-shadow: 0px 0px 1.5px rgba(255, 255, 255, 1);
+}
+.card .text {
+	position: absolute;
+	z-index: 3;
+	left: 13%;
+	top: 62%;
+	font-size: 7px;
+	line-height: 1.1em;
+	margin-right: 13%;
+}
+		.card .text .text-space {
+			width: 100%;
+			height: 3px;
+		}
+		.card .text .symbol-number {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			display: inline-block;
+			text-align: center;
+			font-size: 6px;
+			background-color: #d8c2b3;
+			margin-right: 1px;
+		}
+		.card .text .symbol-tap {
+			width: 6px;
+			height: 6px;
+			margin-right: 1px;
+			position: relative;
+			top: 2px;
+		}
+		.card .text .mana-symbol-white, .card .text .mana-symbol-blue, .card .text .mana-symbol-black, .card .text .mana-symbol-red, .card .text .mana-symbol-green {
+			width: 6.5px;
+			height: 6.5px;
+			position: relative;
+			top: 2px;
+			margin-right: 1px;
+		}
+
+/* -------- PILES -------- */
+.single-pile {
+	position: relative;
+	box-sizing: border-box;
+	padding: 5px 0px 0px 0px;
+	margin: 2px;
+	width: 24.35%;
+	float: left;
+	border-radius: 5px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cccccc+0,cccccc+100&1+0,0.01+100 */
+	background: -moz-linear-gradient(top,  rgba(204,204,204,1) 0%, rgba(204,204,204,0.01) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(204,204,204,0.01) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(204,204,204,1) 0%,rgba(204,204,204,0.01) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#03cccccc',GradientType=0 ); /* IE6-9 */
+
+}
+	.single-pile-header {
+		padding: 1px 0px 4px 0px;
+		text-align: center;
+	}
+.single-pile-cards {
+	position: relative;
+	width: 100%;
+
+}
+.single-pile .card {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	float: none;
+	border-radius: 10px;
+	box-sizing: content-box;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75);
+}
+
+.single-pile .card .card-image {
+	border-radius: 10px;
+	overflow: hidden;
+}
