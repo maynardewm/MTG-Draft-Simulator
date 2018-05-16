@@ -1,0 +1,1 @@
+Builds MTG cards using a custom built front-end generator for 300DPI, HiRes card frames and text, pulls from the MTG API to get card info, then generates boosters and allows you to simulate draft picks.
